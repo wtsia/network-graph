@@ -1,18 +1,22 @@
 import java.util.*;
 
-class Graph {
+// SET
+// PRIORITY QUEUE
+// DIJKSTRA's
+
+public class Graph {
     private Map<String, Map<String, Integer>> adjacencyList;
+    private Map<String, BTree> bTrees;
 
     public Graph() {
         this.adjacencyList = new HashMap<>();
+        this.bTrees = new HashMap<>();
     }
 
-    public void addDevice(String device) {
+    public void addDevice(String device, String description) {
         adjacencyList.put(device, new HashMap<>());
-    }
-
-    public Set<String> getDevices() {
-        return adjacencyList.keySet();
+        bTrees.put(device, new BTree(2)); // Assume a minimum degree of 2 for the B-tree
+        bTrees.get(device).insert(device, description);
     }
 
     public void addConnection(String device1, String device2, int weight) {
@@ -48,5 +52,14 @@ class Graph {
         }
 
         return distances;
+    }
+
+    public Set<String> getDevices() {
+        return adjacencyList.keySet();
+    }
+
+    public String getDescription(String device, String key) {
+        System.out.println("Device: " + device + " Key: " + key);
+        return bTrees.get(device).search(key);
     }
 }

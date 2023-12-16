@@ -35,6 +35,3 @@ A project that models computer networks with an implementation of a graph. Compu
 **B-Tree:** for optimizing search operations or managing information associated with devices.
 
 **Priority Queue for Optimization:** used to optimize the selection of the next node during the shortest path calculation. This enhances the efficiency of Dijkstra's algorithm.
-
-## **Flow:**
-![Flow Chart of Program](FinalDiagram.png)
